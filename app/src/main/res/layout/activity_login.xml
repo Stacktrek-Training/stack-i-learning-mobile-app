@@ -21,7 +21,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/input_background"
-        android:hint="@string/username"
+        android:hint="@string/email"
         android:fontFamily="@font/spiegel_cd_regular"
         android:padding="10dp"/>
 
