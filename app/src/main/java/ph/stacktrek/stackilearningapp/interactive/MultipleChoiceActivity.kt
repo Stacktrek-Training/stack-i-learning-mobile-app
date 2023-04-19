@@ -1,4 +1,4 @@
-package ph.stacktrek.stackilearningapp.quiz
+package ph.stacktrek.stackilearningapp.interactive
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
