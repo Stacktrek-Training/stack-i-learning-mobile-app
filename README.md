@@ -68,7 +68,7 @@ Distributed under the MIT License. See LICENSE for more information.
 
 GitHub username: @desheno, @spork202, @Joommssss 
 
-Project Link: https://github.com/Stacktrek-Training/stack-i-learning-mobile.git
+Project Link: https://github.com/Stacktrek-Training/stack-i-learning-mobile-app
 
 ### Acknowledgments
 
