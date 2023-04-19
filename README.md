@@ -74,7 +74,6 @@ Project Link: https://github.com/Stacktrek-Training/stack-i-learning-mobile.git
 
     Kotlin Official Documentation
     Android Developer Documentation
-    OpenAI GPT-4
     FullStack Open
     Awesome Kotlin
 
