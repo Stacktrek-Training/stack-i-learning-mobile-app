@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_title_margin_top_collapsed">16dp</dimen>
+    <dimen name="toolbar_title_margin_top_expanded">64dp</dimen>
+    <dimen name="toolbar_title_margin_top">16dp</dimen>
+</resources>

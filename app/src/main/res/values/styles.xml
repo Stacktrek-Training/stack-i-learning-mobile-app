@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTitleCollapsed">
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="MyTitleExpanded">
+        <item name="android:textSize">23sp</item>
+    </style>
+
+</resources>
