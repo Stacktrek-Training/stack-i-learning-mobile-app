@@ -8,6 +8,7 @@ import com.google.android.material.snackbar.Snackbar
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.dao.UserDAO
 import ph.stacktrek.stackilearningapp.databinding.ActivityLoginBinding
+import ph.stacktrek.stackilearningapp.quiz.MultipleChoiceActivity
 import ph.stacktrek.stackilearningapp.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -47,8 +48,7 @@ class LoginActivity : AppCompatActivity() {
             var password = binding.etPassword.text.toString()
 
             if (userDAO.validateUser(email, password)) {
-                /*
-                val goLogin = Intent(applicationContext, LearningType::class.java)
+                val goLogin = Intent(applicationContext, MultipleChoiceActivity::class.java)
                 goLogin.putExtra("email", email)
 
                 val bundle = Bundle()
@@ -57,11 +57,7 @@ class LoginActivity : AppCompatActivity() {
 
                 startActivity(goLogin)
                 finish()
-                 */
 
-                Snackbar.make(binding.root,
-                    "Login Successful",
-                    Snackbar.LENGTH_SHORT).show()
             }
             else{
                 Snackbar.make(binding.root,
