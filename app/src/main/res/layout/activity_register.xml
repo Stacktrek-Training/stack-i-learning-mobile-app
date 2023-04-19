@@ -1,9 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".register.RegisterActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="Join Stacktrek Now"
+        android:fontFamily="@font/spiegel_cd_bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+    <Button
+        android:id="@+id/facebook_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/join"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_facebook"
+        android:drawableLeft="@drawable/logo_facebook"
+        android:drawablePadding="10dp"
+        android:text="@string/register_with_facebook"
+        android:fontFamily="@font/spiegel_semi_bold"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/google_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/facebook_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_goole"
+        android:drawableLeft="@drawable/logo_google"
+        android:drawablePadding="10dp"
+        android:text="@string/register_with_google"
+        android:fontFamily="@font/spiegel_semi_bold"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/google_button"
+        android:layout_margin="20dp"
+        android:background="#DDDDDD"/>
+
+    <EditText
+        android:id="@+id/register_input"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/divider"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_background"
+        android:hint="@string/enter_your_email"
+        android:fontFamily="@font/spiegel_cd_regular"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/register_input"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_orange"
+        android:text="@string/register"
+        android:fontFamily="@font/spiegel_semi_bold"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"/>
+
+</RelativeLayout>
