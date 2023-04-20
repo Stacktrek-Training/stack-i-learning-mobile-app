@@ -131,7 +131,7 @@
 
                     <!-- First CardView in first row -->
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_html"
+                        android:id="@+id/cv_multiple_choices"
                         android:layout_width="0dp"
                         android:layout_height="250dp"
                         android:layout_weight="1"
@@ -147,7 +147,7 @@
 
                             <ImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="160dp"
                                 android:id="@+id/iv_html"/>
 
                             <TextView
@@ -166,7 +166,7 @@
 
                     <!-- Second CardView in first row -->
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_css"
+                        android:id="@+id/cv_drag_and_drop"
                         android:layout_width="0dp"
                         android:layout_height="250dp"
                         android:layout_weight="1"
@@ -181,7 +181,7 @@
 
                             <ImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="160dp"
                                 android:id="@+id/iv_css"/>
 
                             <TextView

@@ -11,6 +11,7 @@ import android.widget.Button
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import ph.stacktrek.stackilearningapp.InteractiveActivity
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.adapters.OnBoardingViewPagerAdapter
 import ph.stacktrek.stackilearningapp.login.LoginActivity
@@ -26,7 +27,7 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if(restoreData()) {
-            val i = Intent(applicationContext, LoginActivity::class.java)
+            val i = Intent(applicationContext, InteractiveActivity::class.java)
             startActivity(i)
             finish()
         }
