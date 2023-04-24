@@ -6,10 +6,13 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import androidx.cardview.widget.CardView
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import ph.stacktrek.stackilearningapp.databinding.ActivityInteractiveBinding
 import ph.stacktrek.stackilearningapp.databinding.ActivityLoginBinding
+import ph.stacktrek.stackilearningapp.interactive.DragAndDropActivity
+import ph.stacktrek.stackilearningapp.interactive.MultipleChoiceActivity
 import ph.stacktrek.stackilearningapp.interactive.PlaygroundActivity
 
 class InteractiveActivity : AppCompatActivity() {
@@ -74,8 +77,17 @@ class InteractiveActivity : AppCompatActivity() {
 
             val goPlayground = Intent(applicationContext, PlaygroundActivity::class.java)
             startActivity(goPlayground)
-            finish()
 
+        }
+
+        binding.cvMultipleChoices.setOnClickListener {
+            val goMultipleChoices = Intent(applicationContext, MultipleChoiceActivity::class.java)
+            startActivity(goMultipleChoices)
+        }
+
+        binding.cvDragAndDrop.setOnClickListener {
+            val goDragAndDrop = Intent(applicationContext, DragAndDropActivity::class.java)
+            startActivity(goDragAndDrop)
         }
     }
 }

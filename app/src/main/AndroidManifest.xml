@@ -14,9 +14,6 @@
         android:theme="@style/Theme.StackiLearningApp"
         tools:targetApi="31">
         <activity
-            android:name=".EditProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".profile.ProfileActivity"
             android:exported="false" />
         <activity
