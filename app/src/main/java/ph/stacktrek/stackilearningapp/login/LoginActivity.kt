@@ -3,6 +3,8 @@ package ph.stacktrek.stackilearningapp.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
 import ph.stacktrek.stackilearningapp.InteractiveActivity
@@ -42,26 +44,82 @@ class LoginActivity : AppCompatActivity() {
 
         userDAO = UserDAO(this)
 
+        binding.etEmail.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // do nothing
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // validate the email here
+                if (!isValidEmail(s.toString())) {
+                    binding.etEmail.error = "Invalid email"
+                } else {
+                    binding.etEmail.error = null
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // do nothing
+            }
+
+            fun isValidEmail(email: String): Boolean {
+                val emailRegex = Regex("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,})+\$")
+                return email.matches(emailRegex)
+            }
+
+        })
+
+        binding.etPassword.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // do nothing
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // validate the password here
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // do nothing
+            }
+        })
+
         binding.btnLogin.setOnClickListener {
 
-            var email = binding.etEmail.text.toString()
-            var password = binding.etPassword.text.toString()
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
 
-            if (userDAO.validateUser(email, password)) {
-                val goLogin = Intent(applicationContext, InteractiveActivity::class.java)
-                goLogin.putExtra("email", email)
-
-                val bundle = Bundle()
-                bundle.putString("bundle_email", email)
-                goLogin.putExtras(bundle)
-
-                startActivity(goLogin)
-                finish()
-
+            if (email.isBlank()) {
+                binding.etEmail.error = "Email cannot be empty"
+            } else {
+                binding.etEmail.error = null
             }
-            else{
+
+            if (password.isBlank()) {
+                binding.etPassword.error = "Password cannot be empty"
+            } else {
+                binding.etPassword.error = null
+            }
+
+            if (binding.etEmail.error == null && binding.etPassword.error == null) {
+                if (userDAO.validateUser(email, password)) {
+                    val goLogin = Intent(applicationContext, InteractiveActivity::class.java)
+                    goLogin.putExtra("email", email)
+
+                    val bundle = Bundle()
+                    bundle.putString("bundle_email", email)
+                    goLogin.putExtras(bundle)
+
+                    startActivity(goLogin)
+                    finish()
+                }
+                else{
+                    Snackbar.make(binding.root,
+                        "Invalid email or password",
+                        Snackbar.LENGTH_SHORT).show()
+                }
+            } else {
                 Snackbar.make(binding.root,
-                    "Invalid email or password",
+                    "Please input valid credentials",
                     Snackbar.LENGTH_SHORT).show()
             }
         }

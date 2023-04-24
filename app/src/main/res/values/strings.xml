@@ -11,6 +11,7 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
     <string name="register_with_google">Register with Google</string>
     <string name="register_with_facebook">Register with Facebook</string>
 
