@@ -1,6 +1,7 @@
 package ph.stacktrek.stackilearningapp.interactive
 
 import android.content.ClipData
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.DragEvent
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.model.DragAndDropData
 
@@ -125,11 +127,16 @@ class DragAndDropActivity : AppCompatActivity() {
                     answerEditText.setText("")
                 } else {
                     // There are no more questions, show a message to the user
-                    Toast.makeText(
-                        this@DragAndDropActivity,
-                        "You've answered all the questions!",
-                        Toast.LENGTH_SHORT
-                    )
+
+                    AlertDialog.Builder(this)
+                        .setTitle("Quiz Done!")
+                        .setMessage("You answered all the queries!")
+                        .setPositiveButton("Restart") { _, _ ->
+                            val intent = Intent(this, DragAndDropActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                        .setCancelable(false)
                         .show()
                 }
             } else {
