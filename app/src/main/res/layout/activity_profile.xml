@@ -21,6 +21,15 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme" />
                 <ImageView
                     android:padding="5dp"
                     android:layout_alignParentStart="true"
@@ -73,12 +82,19 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <include layout="@layout/activity_profile_add"/>
 
-        <include layout="@layout/activity_profile_lesson_finished" />
+        <include layout="@layout/activity_profile_add" />
+
+        <include
+            layout="@layout/activity_profile_lesson_finished"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
-    <include layout="@layout/activity_profile_course_progress"/>
+    <include
+        layout="@layout/activity_profile_course_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 </LinearLayout>

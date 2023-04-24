@@ -15,6 +15,7 @@ import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.adapters.OnBoardingViewPagerAdapter
 import ph.stacktrek.stackilearningapp.login.LoginActivity
 import ph.stacktrek.stackilearningapp.model.OnBoardingData
+import ph.stacktrek.stackilearningapp.profile.ProfileActivity
 
 class OnBoardingActivity : AppCompatActivity() {
     private lateinit var onBoardingViewPagerAdapter: OnBoardingViewPagerAdapter
@@ -26,7 +27,7 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if(restoreData()) {
-            val i = Intent(applicationContext, LoginActivity::class.java)
+            val i = Intent(applicationContext, ProfileActivity::class.java)
             startActivity(i)
             finish()
         }
