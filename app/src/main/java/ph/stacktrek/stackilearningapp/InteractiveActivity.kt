@@ -9,9 +9,11 @@ import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
+import ph.stacktrek.stackilearningapp.dao.GuessThePictureDAO
 import ph.stacktrek.stackilearningapp.databinding.ActivityInteractiveBinding
 import ph.stacktrek.stackilearningapp.databinding.ActivityLoginBinding
 import ph.stacktrek.stackilearningapp.interactive.DragAndDropActivity
+import ph.stacktrek.stackilearningapp.interactive.GuessThePicture
 import ph.stacktrek.stackilearningapp.interactive.MultipleChoiceActivity
 import ph.stacktrek.stackilearningapp.interactive.PlaygroundActivity
 
@@ -88,6 +90,11 @@ class InteractiveActivity : AppCompatActivity() {
         binding.cvDragAndDrop.setOnClickListener {
             val goDragAndDrop = Intent(applicationContext, DragAndDropActivity::class.java)
             startActivity(goDragAndDrop)
+        }
+
+        binding.cvGuessThePicture.setOnClickListener {
+            val goGuess = Intent(applicationContext, GuessThePicture::class.java)
+            startActivity(goGuess)
         }
     }
 }

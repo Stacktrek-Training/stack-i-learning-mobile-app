@@ -209,7 +209,7 @@
 
                     <!-- First CardView in second row -->
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_c"
+                        android:id="@+id/cv_guess_the_picture"
                         android:layout_width="0dp"
                         android:layout_height="250dp"
                         android:layout_weight="1"
@@ -225,7 +225,7 @@
 
                             <ImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="160dp"
                                 android:id="@+id/iv_c"/>
 
                             <TextView
@@ -234,7 +234,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_gravity="center"
                                 android:padding="16dp"
-                                android:text="C"
+                                android:text="Guess the Picture"
                                 android:fontFamily="@font/spiegel_cd_bold"
                                 android:textSize="24sp" />
 
@@ -259,7 +259,7 @@
 
                             <ImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="160dp"
                                 android:id="@+id/iv_python"/>
 
                             <TextView
