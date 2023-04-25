@@ -13,35 +13,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StackiLearningApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".interactive.HangmanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interactive.HangmanAActivity"
+            android:exported="false" />
         <activity
             android:name=".interactive.GuessThePicture"
             android:exported="false" />
-
         <activity
             android:name=".interactive.ResultActivity"
             android:exported="false" />
-
         <activity
             android:name=".profile.ProfileActivity"
             android:exported="false" />
-
         <activity
             android:name=".interactive.PlaygroundActivity"
             android:exported="false" />
-
         <activity
             android:name=".InteractiveActivity"
             android:exported="false" />
-
         <activity
             android:name=".interactive.DragAndDropActivity"
             android:exported="false" />
-
         <activity
             android:name=".interactive.MultipleChoiceActivity"
             android:exported="false" />
-
         <activity
             android:name=".splashscreen.SplashActivity"
             android:exported="true">
@@ -51,19 +49,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".onboarding.OnBoardingActivity"
             android:exported="false" />
         <activity
-
             android:name=".register.RegisterActivity"
             android:exported="false" />
-
         <activity
             android:name=".login.LoginActivity"
             android:exported="false" />
-
         <activity
             android:name=".MainActivity"
             android:exported="false" />

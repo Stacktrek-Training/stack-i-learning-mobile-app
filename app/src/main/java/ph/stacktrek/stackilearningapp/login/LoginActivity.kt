@@ -105,6 +105,15 @@ class LoginActivity : AppCompatActivity() {
 
             if (binding.etEmail.error == null && binding.etPassword.error == null) {
                 if (userDAO.validateUser(email, password)) {
+
+                    MotionToast.createToast(this,
+                        "Login Successfully!",
+                        "Logging in...",
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
+
                     val goLogin = Intent(applicationContext, InteractiveActivity::class.java)
                     goLogin.putExtra("email", email)
 

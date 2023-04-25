@@ -14,6 +14,7 @@ import ph.stacktrek.stackilearningapp.databinding.ActivityInteractiveBinding
 import ph.stacktrek.stackilearningapp.databinding.ActivityLoginBinding
 import ph.stacktrek.stackilearningapp.interactive.DragAndDropActivity
 import ph.stacktrek.stackilearningapp.interactive.GuessThePicture
+import ph.stacktrek.stackilearningapp.interactive.HangmanActivity
 import ph.stacktrek.stackilearningapp.interactive.MultipleChoiceActivity
 import ph.stacktrek.stackilearningapp.interactive.PlaygroundActivity
 
@@ -95,6 +96,11 @@ class InteractiveActivity : AppCompatActivity() {
         binding.cvGuessThePicture.setOnClickListener {
             val goGuess = Intent(applicationContext, GuessThePicture::class.java)
             startActivity(goGuess)
+        }
+
+        binding.cvHangman.setOnClickListener {
+            val goHangman = Intent(applicationContext, HangmanActivity::class.java)
+            startActivity(goHangman)
         }
     }
 }

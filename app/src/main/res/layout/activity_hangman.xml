@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".interactive.HangmanActivity">
+
+    <TextView
+        android:id="@+id/text_view_hangman"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HANGMAN"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"/>
+
+    <!-- 2. Alphabet buttons -->
+    <GridLayout
+        android:id="@+id/letters_grid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="4"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/button_A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="A"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="B"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="C"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="D"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="E"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_F"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="F"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_G"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="G"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_H"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="H"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_I"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="I"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_J"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="J"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_K"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="K"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_L"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="L"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="M"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_N"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="N"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_O"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="O"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="P"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_Q"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="Q"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_R"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="R"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_S"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="S"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_T"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="T"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_U"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="U"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_V"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="V"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_W"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="W"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_X"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="X"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_Y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="Y"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/button_Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLetterButtonClick"
+            android:text="Z"
+            android:textSize="20sp"/>
+
+    </GridLayout>
+
+    <!-- 3. Title category -->
+    <TextView
+        android:id="@+id/text_view_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Programming Language"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/text_view_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="______"
+        android:textSize="24sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 4. Remaining moves -->
+    <TextView
+        android:id="@+id/text_view_moves"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remaining moves: 7"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"/>
+
+    <!-- 5. Hangman area -->
+    <ImageView
+        android:id="@+id/image_view_hangman"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="centerInside"/>
+
+    <!-- 6. Reset button -->
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Reset"/>
+
+</LinearLayout>
