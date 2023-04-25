@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.dao.UserDAO
 import ph.stacktrek.stackilearningapp.databinding.ActivityLoginBinding
 import ph.stacktrek.stackilearningapp.databinding.ActivityRegisterBinding
 import ph.stacktrek.stackilearningapp.login.LoginActivity
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -35,7 +38,13 @@ class RegisterActivity : AppCompatActivity() {
                 if (userId == -1L) {
                     Toast.makeText(this, "User already exists", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show()
+                    MotionToast.createToast(this,
+                        "Registration Successful!",
+                        "User registered successfully!",
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
 
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
