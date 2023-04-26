@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import ph.stacktrek.stackilearningapp.InteractiveActivity
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.dao.UserDAO
 import ph.stacktrek.stackilearningapp.databinding.ActivityLoginBinding
 import ph.stacktrek.stackilearningapp.register.RegisterActivity
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 
 class LoginActivity : AppCompatActivity() {
 
@@ -102,6 +105,15 @@ class LoginActivity : AppCompatActivity() {
 
             if (binding.etEmail.error == null && binding.etPassword.error == null) {
                 if (userDAO.validateUser(email, password)) {
+
+                    MotionToast.createToast(this,
+                        "Login Successfully!",
+                        "Logging in...",
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
+
                     val goLogin = Intent(applicationContext, InteractiveActivity::class.java)
                     goLogin.putExtra("email", email)
 
@@ -112,15 +124,23 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(goLogin)
                     finish()
                 }
-                else{
-                    Snackbar.make(binding.root,
-                        "Invalid email or password",
-                        Snackbar.LENGTH_SHORT).show()
+                else {
+                    MotionToast.createToast(this,
+                        "Login Failed!",
+                        "Invalid email or password!",
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
                 }
             } else {
-                Snackbar.make(binding.root,
-                    "Please input valid credentials",
-                    Snackbar.LENGTH_SHORT).show()
+                MotionToast.createToast(this,
+                    "Login Failed!",
+                    "Fields cannot be empty!",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
             }
         }
 

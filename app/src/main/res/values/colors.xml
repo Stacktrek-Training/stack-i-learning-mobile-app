@@ -11,4 +11,6 @@
     <color name="red">#FF0000</color>
     <color name="light_gray">#CCCCCC</color>
 
+    <color name="button_text_clicked">#888888</color>
+
 </resources>
