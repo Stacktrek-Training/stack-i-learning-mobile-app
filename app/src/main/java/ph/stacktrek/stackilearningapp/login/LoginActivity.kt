@@ -3,8 +3,10 @@ package ph.stacktrek.stackilearningapp.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
@@ -20,6 +22,8 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private var userDAO: UserDAO = UserDAO(this)
+    private val handler = Handler()
+
 
     private val launchRegister = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -104,35 +108,43 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (binding.etEmail.error == null && binding.etPassword.error == null) {
-                if (userDAO.validateUser(email, password)) {
 
-                    MotionToast.createToast(this,
-                        "Login Successfully!",
-                        "Logging in...",
-                        MotionToastStyle.SUCCESS,
-                        MotionToast.GRAVITY_BOTTOM,
-                        MotionToast.LONG_DURATION,
-                        ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
+                binding.progressLoading.visibility = View.VISIBLE // Show the Lottie animation
 
-                    val goLogin = Intent(applicationContext, InteractiveActivity::class.java)
-                    goLogin.putExtra("email", email)
+                handler.postDelayed({
+                    if (userDAO.validateUser(email, password)) {
 
-                    val bundle = Bundle()
-                    bundle.putString("bundle_email", email)
-                    goLogin.putExtras(bundle)
+                        MotionToast.createToast(this,
+                            "Login Successfully!",
+                            "Logging in...",
+                            MotionToastStyle.SUCCESS,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
 
-                    startActivity(goLogin)
-                    finish()
-                }
-                else {
-                    MotionToast.createToast(this,
-                        "Login Failed!",
-                        "Invalid email or password!",
-                        MotionToastStyle.ERROR,
-                        MotionToast.GRAVITY_BOTTOM,
-                        MotionToast.LONG_DURATION,
-                        ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
-                }
+                        val goLogin = Intent(applicationContext, InteractiveActivity::class.java)
+                        goLogin.putExtra("email", email)
+
+                        val bundle = Bundle()
+                        bundle.putString("bundle_email", email)
+                        goLogin.putExtras(bundle)
+
+                        startActivity(goLogin)
+                        finish()
+                    }
+                    else {
+                        MotionToast.createToast(this,
+                            "Login Failed!",
+                            "Invalid email or password!",
+                            MotionToastStyle.ERROR,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
+                    }
+
+                    binding.progressLoading.visibility = View.GONE // Hide the Lottie animation
+                }, 4000) // Delay the execution by 4 seconds (4000 milliseconds)
+
             } else {
                 MotionToast.createToast(this,
                     "Login Failed!",

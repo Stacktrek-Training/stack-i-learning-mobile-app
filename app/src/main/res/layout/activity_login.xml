@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,6 +11,17 @@
         android:layout_height="320dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo_stacktrek2"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:lottie_rawRes="@raw/loading_anim"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        android:layout_above="@id/etEmail" />
 
     <EditText
         android:id="@+id/etEmail"
