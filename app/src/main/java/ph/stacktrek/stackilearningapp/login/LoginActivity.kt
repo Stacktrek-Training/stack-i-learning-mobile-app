@@ -116,7 +116,7 @@ class LoginActivity : AppCompatActivity() {
 
                         MotionToast.createToast(this,
                             "Login Successfully!",
-                            "Logging in...",
+                            "Logged in.",
                             MotionToastStyle.SUCCESS,
                             MotionToast.GRAVITY_BOTTOM,
                             MotionToast.LONG_DURATION,
@@ -143,7 +143,7 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                     binding.progressLoading.visibility = View.GONE // Hide the Lottie animation
-                }, 4000) // Delay the execution by 4 seconds (4000 milliseconds)
+                }, 3000) // Delay the execution by 3 seconds (3000 milliseconds)
 
             } else {
                 MotionToast.createToast(this,

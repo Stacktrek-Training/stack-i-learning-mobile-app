@@ -30,51 +30,52 @@ class InteractiveActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //Image Loader
-        val fullstackImage = findViewById<ImageView>(R.id.iv_fullstack)
+        //val fullstackImage = findViewById<ImageView>(R.id.iv_fullstack)
 
-        val htmlImage = findViewById<ImageView>(R.id.iv_html)
-        val cssImage = findViewById<ImageView>(R.id.iv_css)
-        val cImage = findViewById<ImageView>(R.id.iv_c)
-        val pythonImage = findViewById<ImageView>(R.id.iv_python)
+        val multipleImage = findViewById<ImageView>(R.id.iv_multiplechoices)
+        val dragdropImage = findViewById<ImageView>(R.id.iv_dragdrop)
+        val guessImage = findViewById<ImageView>(R.id.iv_guess)
+        val hangmanImage = findViewById<ImageView>(R.id.iv_hangman)
 
         val options = BitmapFactory.Options()
         options.inSampleSize = 4 // Scale down the image by a factor of 4
 
-        // Load the non-coder image with Picasso
+        // Load image with Picasso
+        /*
         Picasso.get()
             .load(R.drawable.header_fullstack)
             .config(Bitmap.Config.RGB_565) // Use 16-bit color depth to reduce memory usage
             .resize(500, 500) // Resize the image to a smaller size
             .centerCrop() // Crop the image to fill the ImageView
             .into(fullstackImage)
-
+         */
         Picasso.get()
-            .load(R.drawable.language_html)
+            .load(R.drawable.category_multiplechoices)
             .config(Bitmap.Config.RGB_565) // Use 16-bit color depth to reduce memory usage
             .resize(500, 500) // Resize the image to a smaller size
             .centerCrop() // Crop the image to fill the ImageView
-            .into(htmlImage)
+            .into(multipleImage)
 
         Picasso.get()
-            .load(R.drawable.language_css)
+            .load(R.drawable.category_dragdrop)
             .config(Bitmap.Config.RGB_565) // Use 16-bit color depth to reduce memory usage
             .resize(500, 500) // Resize the image to a smaller size
             .centerCrop() // Crop the image to fill the ImageView
-            .into(cssImage)
+            .into(dragdropImage)
 
         Picasso.get()
-            .load(R.drawable.language_c)
+            .load(R.drawable.category_guess)
             .config(Bitmap.Config.RGB_565) // Use 16-bit color depth to reduce memory usage
             .resize(500, 500) // Resize the image to a smaller size
             .centerCrop() // Crop the image to fill the ImageView
-            .into(cImage)
+            .into(guessImage)
 
         Picasso.get()
-            .load(R.drawable.language_python)
+            .load(R.drawable.category_hangman)
             .config(Bitmap.Config.RGB_565) // Use 16-bit color depth to reduce memory usage
             .resize(500, 500) // Resize the image to a smaller size
             .centerCrop() // Crop the image to fill the ImageView
-            .into(pythonImage)
+            .into(hangmanImage)
 
         binding.btnGo.setOnClickListener {
 

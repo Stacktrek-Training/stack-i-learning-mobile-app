@@ -21,21 +21,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Let's Play!"
+                android:text="Let's play some games!"
                 android:textColor="#000000"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/spiegel_cd_bold"/>
 
-            <ImageView
-                android:id="@+id/iv_fullstack"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/header_fullstack"
-                android:scaleType="centerCrop"
-                android:contentDescription="Full Stack"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"/>
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/playAnimation"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                app:lottie_rawRes="@raw/programming_effects"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true" />
 
             <TextView
                 android:id="@+id/featured"
@@ -148,7 +147,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="160dp"
-                                android:id="@+id/iv_html"/>
+                                android:id="@+id/iv_multiplechoices"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -182,7 +181,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="160dp"
-                                android:id="@+id/iv_css"/>
+                                android:id="@+id/iv_dragdrop"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -226,7 +225,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="160dp"
-                                android:id="@+id/iv_c"/>
+                                android:id="@+id/iv_guess"/>
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -260,7 +259,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="160dp"
-                                android:id="@+id/iv_python"/>
+                                android:id="@+id/iv_hangman"/>
 
                             <TextView
                                 android:layout_width="match_parent"
