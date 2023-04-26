@@ -23,7 +23,7 @@ Ensure that you have the following software installed on your system:
 1. Clone the repository
 
 ```bash
-git clone https://github.com/your_username/repo_name.git
+git clone https://github.com/Stacktrek-Training/stack-i-learning-mobile-app.git
 ```
 
 Open the project in Android Studio.
