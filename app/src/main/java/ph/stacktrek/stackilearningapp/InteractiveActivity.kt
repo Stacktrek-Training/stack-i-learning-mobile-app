@@ -18,6 +18,7 @@ import ph.stacktrek.stackilearningapp.interactive.HangmanActivity
 import ph.stacktrek.stackilearningapp.interactive.MultipleChoiceActivity
 import ph.stacktrek.stackilearningapp.interactive.PlaygroundActivity
 
+
 class InteractiveActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInteractiveBinding
@@ -103,5 +104,6 @@ class InteractiveActivity : AppCompatActivity() {
             val goHangman = Intent(applicationContext, HangmanActivity::class.java)
             startActivity(goHangman)
         }
+
     }
 }
