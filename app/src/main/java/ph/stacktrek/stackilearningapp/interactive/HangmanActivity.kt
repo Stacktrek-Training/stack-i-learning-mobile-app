@@ -1,16 +1,11 @@
 package ph.stacktrek.stackilearningapp.interactive
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import ph.stacktrek.stackilearningapp.R
-import android.view.View
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import ph.stacktrek.stackilearningapp.databinding.ActivityHangmanBinding
-import ph.stacktrek.stackilearningapp.databinding.ActivityInteractiveBinding
 import java.util.Locale
 
 class HangmanActivity : AppCompatActivity() {
@@ -18,22 +13,25 @@ class HangmanActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHangmanBinding
 
     private var textViewWord: TextView? = null
-    private var imageViewHangman: ImageView? = null
     private var buttonReset: Button? = null
     private var remainingMoves = 7
     private val lettersGuessed = BooleanArray(26)
     private var word: String? = null
 
+    // Declare a variable for the HangmanView
+    private lateinit var hangmanView: HangmanView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hangman)
-
         binding = ActivityHangmanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        textViewWord = findViewById(R.id.text_view_word)
-        imageViewHangman = findViewById(R.id.image_view_hangman)
-        buttonReset = findViewById(R.id.button_reset)
+        hangmanView = binding.hangmanView
+
+        binding.textViewMoves.text = "Remaining moves: $remainingMoves"
+
+        textViewWord = binding.textViewWord
+        buttonReset = binding.buttonReset
 
         // Choose a random word
         word = "javascript".toUpperCase(Locale.ROOT)
@@ -43,82 +41,79 @@ class HangmanActivity : AppCompatActivity() {
         for (i in 0 until word!!.length) {
             sb.append("_ ")
         }
-        binding.textViewWord.text = sb.toString().trim() // use safe call operator
+        textViewWord!!.text = sb.toString().trim()
 
-        binding.buttonReset.setOnClickListener {
+        // Set up the keyboard
+        val keyboardView = binding.keyboardView
+        keyboardView.setOnLetterClickListener { letter ->
+            onLetterClick(letter)
+        }
+
+        buttonReset!!.setOnClickListener {
             resetGame()
         }
     }
 
     private fun resetGame() {
-        // Reset the game state
         remainingMoves = 7
-        for (i in lettersGuessed.indices) {
-            lettersGuessed[i] = false
+        lettersGuessed.fill(false)
+        word = "javascript".toUpperCase(Locale.ROOT)
+
+        // Set the text of textViewWord to a series of dashes
+        val sb = StringBuilder()
+        for (i in 0 until word!!.length) {
+            sb.append("_ ")
         }
+        textViewWord!!.text = sb.toString().trim()
 
-        // Reset the hangman image and visibility of the reset button
-        binding.imageViewHangman.setImageResource(R.drawable.hangman0)
-        binding.buttonReset.visibility = View.INVISIBLE
+        hangmanView.setRemainingMoves(remainingMoves)
+        binding.textViewMoves.text = "Remaining moves: $remainingMoves"
 
-        // Recreate the activity
-        recreate()
+        // Re-enable all the letter views
+        val keyboardView = binding.keyboardView
+        for (i in 0 until keyboardView.getChildCount()) {
+            val letterView = keyboardView.getChildAt(i) as TextView
+            letterView.isEnabled = true
+        }
     }
 
-    fun onLetterButtonClick(view: View) {
+    private fun updateWordView() {
+        val sb = StringBuilder()
+        for (i in 0 until word!!.length) {
+            val letter = word!![i].toString()
+            sb.append(if (lettersGuessed[letter[0].toInt() - 'A'.toInt()]) letter else "_ ")
+        }
+        textViewWord!!.text = sb.toString().trim()
+    }
 
+    private fun onLetterClick(letter: String) {
+        // Check if the game is already over
         if (remainingMoves == 0) {
-            // User has used all remaining letters
-            Toast.makeText(this, "Game over, you have used all remaining letters", Toast.LENGTH_SHORT).show()
-            binding.buttonReset.visibility = View.VISIBLE
             return
         }
 
-        val button = view as Button
-        val letter = button.text[0]
-        val index = letter.code - 'A'.code
+        val index = letter[0].toInt() - 'A'.toInt()
         if (lettersGuessed[index]) {
-            // Letter has already been guessed
             return
         }
+
         lettersGuessed[index] = true
 
-        // Set the text color of the button to the clicked color
-        button.setTextColor(ContextCompat.getColor(this, R.color.button_text_clicked))
-
-        if (word!!.indexOf(letter) >= 0) {
-            // Letter is in the word
-            val sb = StringBuilder(binding.textViewWord.text)
-            for (i in 0 until word!!.length) {
-                if (word!![i] == letter) {
-                    sb.setCharAt(i * 2, letter)
-                }
-            }
-            binding.textViewWord.text = sb.toString()
-            if (binding.textViewWord.text.indexOf('_') < 0) {
-                // User has guessed all the letters
-                Toast.makeText(this, "You win!", Toast.LENGTH_SHORT).show()
-                binding.buttonReset.visibility = View.VISIBLE
-            }
-        } else {
-            // Letter is not in the word
+        if (!word!!.contains(letter)) {
             remainingMoves--
-            binding.textViewMoves.text = "Remaining moves: $remainingMoves"
-            when (remainingMoves) {
-                6 -> binding.imageViewHangman.setImageResource(R.drawable.hangman0)
-                5 -> binding.imageViewHangman.setImageResource(R.drawable.hangman0)
-                4 -> binding.imageViewHangman.setImageResource(R.drawable.hangman0)
-                3 -> binding.imageViewHangman.setImageResource(R.drawable.hangman0)
-                2 -> binding.imageViewHangman.setImageResource(R.drawable.hangman0)
-                1 -> binding.imageViewHangman.setImageResource(R.drawable.hangman0)
-                0 -> {
+            hangmanView.setRemainingMoves(remainingMoves)
 
-                    // User has made too many incorrect guesses
-                    Toast.makeText(this, "You lose!", Toast.LENGTH_SHORT).show()
-                    binding.textViewWord.text = word
-                    binding.buttonReset.visibility = View.VISIBLE
-                }
+            if (remainingMoves == 0) {
+                Toast.makeText(this, "Game over! You ran out of letters.", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
+
+        binding.textViewMoves.text = "Remaining moves: $remainingMoves"
+
+        updateWordView()
+
+        val keyboardView = binding.keyboardView
+        keyboardView.getChildAt(index).isEnabled = false
     }
 }

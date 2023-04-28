@@ -16,6 +16,12 @@
     <string name="register_with_google">Register with Google</string>
     <string name="register_with_facebook">Register with Facebook</string>
 
+    <string name="choice1">Choice 1</string>
+    <string name="choice2">Choice 2</string>
+    <string name="choice3">Choice 3</string>
+    <string name="choice4">Choice 4</string>
+
+
     <!-- Dashboard Strings -->
 
     <string-array name="word_list">

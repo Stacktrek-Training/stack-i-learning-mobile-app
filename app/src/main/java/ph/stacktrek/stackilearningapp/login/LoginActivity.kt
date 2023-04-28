@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -109,11 +110,12 @@ class LoginActivity : AppCompatActivity() {
 
             if (binding.etEmail.error == null && binding.etPassword.error == null) {
 
-                binding.progressLoading.visibility = View.VISIBLE // Show the Lottie animation
+                if (userDAO.validateUser(email, password)) {
 
-                handler.postDelayed({
-                    if (userDAO.validateUser(email, password)) {
+                    binding.loginSuccess.visibility = View.VISIBLE // Show the Lottie animation
 
+                    val handler = Handler(Looper.getMainLooper())
+                    handler.postDelayed({
                         MotionToast.createToast(this,
                             "Login Successfully!",
                             "Logged in.",
@@ -131,19 +133,19 @@ class LoginActivity : AppCompatActivity() {
 
                         startActivity(goLogin)
                         finish()
-                    }
-                    else {
-                        MotionToast.createToast(this,
-                            "Login Failed!",
-                            "Invalid email or password!",
-                            MotionToastStyle.ERROR,
-                            MotionToast.GRAVITY_BOTTOM,
-                            MotionToast.LONG_DURATION,
-                            ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
-                    }
 
-                    binding.progressLoading.visibility = View.GONE // Hide the Lottie animation
-                }, 3000) // Delay the execution by 3 seconds (3000 milliseconds)
+                        binding.loginSuccess.visibility = View.GONE // Hide the Lottie animation
+                    }, 3000) // Delay the execution by 3 seconds (3000 milliseconds)
+
+                } else {
+                    MotionToast.createToast(this,
+                        "Login Failed!",
+                        "Invalid email or password!",
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
+                }
 
             } else {
                 MotionToast.createToast(this,

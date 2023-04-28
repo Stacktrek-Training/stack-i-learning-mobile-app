@@ -68,13 +68,13 @@
         android:textSize="16sp"/>
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/progressLoading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/loginSuccess"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginTop="40dp"
         android:visibility="gone"
         app:lottie_rawRes="@raw/login_authenticate"
-        app:lottie_loop="true"
+        app:lottie_loop="false"
         app:lottie_autoPlay="true"
         android:layout_below="@id/btnRegister"
         android:layout_centerHorizontal="true" />
