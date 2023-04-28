@@ -1,12 +1,12 @@
 package ph.stacktrek.stackilearningapp.interactive
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.model.MultipleChoicesData
 
@@ -62,7 +62,7 @@ class MultipleChoiceActivity : AppCompatActivity(), View.OnClickListener {
             currentQuestionIndex++
             loadNewQuestion()
         } else {
-            //choices button clicked
+            // choices button clicked
             selectedAnswer = clickedButton.text.toString()
             clickedButton.setBackgroundColor(Color.LTGRAY)
         }

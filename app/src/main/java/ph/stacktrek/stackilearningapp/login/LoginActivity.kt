@@ -1,7 +1,6 @@
 package ph.stacktrek.stackilearningapp.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,6 +8,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import ph.stacktrek.stackilearningapp.InteractiveActivity
@@ -25,9 +25,8 @@ class LoginActivity : AppCompatActivity() {
     private var userDAO: UserDAO = UserDAO(this)
     private val handler = Handler()
 
-
     private val launchRegister = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
+        ActivityResultContracts.StartActivityForResult(),
     ) { result ->
         val data = result.data
 
@@ -38,8 +37,9 @@ class LoginActivity : AppCompatActivity() {
             binding.etEmail.setText(email)
             binding.etPassword.setText(password)
             Snackbar.make(
-                binding.root, "Registered ${data!!.getStringExtra("email")}",
-                Snackbar.LENGTH_LONG
+                binding.root,
+                "Registered ${data!!.getStringExtra("email")}",
+                Snackbar.LENGTH_LONG,
             ).show()
         }
     }
@@ -74,7 +74,6 @@ class LoginActivity : AppCompatActivity() {
                 val emailRegex = Regex("^\\w+([.-]?\\w+)*@\\w+([.-]?\\w+)*(\\.\\w{2,})+\$")
                 return email.matches(emailRegex)
             }
-
         })
 
         binding.etPassword.addTextChangedListener(object : TextWatcher {
@@ -92,7 +91,6 @@ class LoginActivity : AppCompatActivity() {
         })
 
         binding.btnLogin.setOnClickListener {
-
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
 
@@ -109,20 +107,20 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (binding.etEmail.error == null && binding.etPassword.error == null) {
-
                 if (userDAO.validateUser(email, password)) {
-
                     binding.loginSuccess.visibility = View.VISIBLE // Show the Lottie animation
 
                     val handler = Handler(Looper.getMainLooper())
                     handler.postDelayed({
-                        MotionToast.createToast(this,
+                        MotionToast.createToast(
+                            this,
                             "Login Successfully!",
                             "Logged in.",
                             MotionToastStyle.SUCCESS,
                             MotionToast.GRAVITY_BOTTOM,
                             MotionToast.LONG_DURATION,
-                            ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
+                            ResourcesCompat.getFont(this, R.font.spiegel_cd_bold),
+                        )
 
                         val goLogin = Intent(applicationContext, InteractiveActivity::class.java)
                         goLogin.putExtra("email", email)
@@ -136,32 +134,34 @@ class LoginActivity : AppCompatActivity() {
 
                         binding.loginSuccess.visibility = View.GONE // Hide the Lottie animation
                     }, 3000) // Delay the execution by 3 seconds (3000 milliseconds)
-
                 } else {
-                    MotionToast.createToast(this,
+                    MotionToast.createToast(
+                        this,
                         "Login Failed!",
                         "Invalid email or password!",
                         MotionToastStyle.ERROR,
                         MotionToast.GRAVITY_BOTTOM,
                         MotionToast.LONG_DURATION,
-                        ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
+                        ResourcesCompat.getFont(this, R.font.spiegel_cd_bold),
+                    )
                 }
-
             } else {
-                MotionToast.createToast(this,
+                MotionToast.createToast(
+                    this,
                     "Login Failed!",
                     "Fields cannot be empty!",
                     MotionToastStyle.ERROR,
                     MotionToast.GRAVITY_BOTTOM,
                     MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
+                    ResourcesCompat.getFont(this, R.font.spiegel_cd_bold),
+                )
             }
         }
 
         binding.btnRegister.setOnClickListener {
             val goToRegister = Intent(
                 applicationContext,
-                RegisterActivity::class.java
+                RegisterActivity::class.java,
             )
 
             launchRegister.launch(goToRegister)

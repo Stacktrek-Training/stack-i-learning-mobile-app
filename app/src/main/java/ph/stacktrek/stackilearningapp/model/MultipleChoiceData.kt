@@ -9,7 +9,7 @@ class MultipleChoicesData {
             "HTML stands for __________",
             "What is the correct syntax of doctype in HTML5?",
             "How do we write comments in HTML?",
-            "Among the following, which is the HTML paragraph tag?"
+            "Among the following, which is the HTML paragraph tag?",
         )
 
         val choices = arrayOf(
@@ -17,7 +17,7 @@ class MultipleChoicesData {
             arrayOf("HyperText Markup Language", "HyperText Machine Language", "HyperText Marking Language", "HighText Marking Language"),
             arrayOf("</doctype html>", "<doctype html>", "<doctype html!>", "<!doctype html>"),
             arrayOf("</…….>", "<!……>", "</……/>", "<…….!>"),
-            arrayOf("<p>", "<pre>", "<hr>", "<a>")
+            arrayOf("<p>", "<pre>", "<hr>", "<a>"),
         )
 
         val correctAnswers = arrayOf(
@@ -25,12 +25,11 @@ class MultipleChoicesData {
             "HyperText Markup Language",
             "<!doctype html>",
             "<!……>",
-            "<p>"
+            "<p>",
         )
 
         val questionImages = arrayOf(
             R.drawable.html_img,
         )
-
     }
 }

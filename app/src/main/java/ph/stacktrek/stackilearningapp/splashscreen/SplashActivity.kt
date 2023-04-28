@@ -1,11 +1,11 @@
 package ph.stacktrek.stackilearningapp.splashscreen
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.onboarding.OnBoardingActivity
 
@@ -20,6 +20,6 @@ class SplashActivity : AppCompatActivity() {
         Handler().postDelayed({
             startActivity(Intent(this, OnBoardingActivity::class.java))
             finish()
-        }, 3000)
+        }, 5000) // delay for 5 seconds
     }
 }

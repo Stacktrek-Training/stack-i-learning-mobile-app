@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".InteractiveActivity">
 
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
