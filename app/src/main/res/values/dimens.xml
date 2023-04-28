@@ -3,4 +3,10 @@
     <dimen name="toolbar_title_margin_top_collapsed">16dp</dimen>
     <dimen name="toolbar_title_margin_top_expanded">64dp</dimen>
     <dimen name="toolbar_title_margin_top">16dp</dimen>
+
+    <dimen name="layout_padding">16dp</dimen>
+    <dimen name="layout_margin">20dp</dimen>
+
+    <dimen name="letter_button_horizontal_padding">8dp</dimen>
+    <dimen name="letter_button_vertical_padding">4dp</dimen>
 </resources>
