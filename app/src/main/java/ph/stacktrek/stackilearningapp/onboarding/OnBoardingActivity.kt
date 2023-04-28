@@ -22,6 +22,7 @@ class OnBoardingActivity : AppCompatActivity() {
     private lateinit var onBoardingViewPager2: ViewPager2
     var next: Button? = null
     var sharedPreferences: SharedPreferences? = null
+    var position = 0 // Moved position variable outside onCreate
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,12 +33,14 @@ class OnBoardingActivity : AppCompatActivity() {
         }
 
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
-        this.window.setFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON, WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
+        this.window.setFlags(
+            WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
+            WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+        )
         setContentView(R.layout.activity_on_boarding)
 
         tabLayout = findViewById(R.id.tab_indicator)
         next = findViewById(R.id.next)
-        var position = 0
 
         // Data to the model class
         val onBoardingDataList = listOf(
@@ -66,36 +69,32 @@ class OnBoardingActivity : AppCompatActivity() {
             // Set tab text or icon here
         }.attach()
 
-        position = onBoardingViewPager2!!.currentItem
-        next?.setOnClickListener() {
-            if (position < onBoardingDataList.size) {
-                position++
-                onBoardingViewPager2!!.currentItem = position
+        onBoardingViewPager2.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                this@OnBoardingActivity
+                    .position = position // Update the position variable
+                if (position == onBoardingDataList.size - 1) {
+                    next?.text = "Get Started"
+                } else {
+                    next?.text = "Next"
+                }
             }
-            if (position == onBoardingDataList.size) {
+        })
+
+        next?.setOnClickListener {
+            if (position < onBoardingDataList.size - 1) {
+                position++
+                onBoardingViewPager2.currentItem = position
+            }
+            if (next?.text == "Get Started") {
                 savePrefData()
                 val i = Intent(applicationContext, LoginActivity::class.java)
                 startActivity(i)
             }
         }
-
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-                position = tab!!.position
-                if (tab.position == onBoardingDataList.size - 1) {
-                    next!!.text = "Get Started"
-                } else {
-                    next!!.text = "Next"
-                }
-            }
-        })
     }
+
     private fun savePrefData() {
         sharedPreferences = applicationContext.getSharedPreferences("pref", Context.MODE_PRIVATE)
         val editor = sharedPreferences!!.edit()

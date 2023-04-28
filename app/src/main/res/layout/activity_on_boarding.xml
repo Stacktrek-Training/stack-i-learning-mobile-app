@@ -10,10 +10,10 @@
         android:id="@+id/screen_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"/>
-
+        tools:layout_editor_absoluteY="1dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
