@@ -163,8 +163,8 @@ class LoginActivity : AppCompatActivity() {
                 applicationContext,
                 RegisterActivity::class.java,
             )
-
             launchRegister.launch(goToRegister)
+            finish()
         }
     }
 }
