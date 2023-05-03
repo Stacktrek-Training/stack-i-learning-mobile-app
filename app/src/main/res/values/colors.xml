@@ -13,4 +13,8 @@
 
     <color name="button_text_clicked">#888888</color>
 
+    <color name="textInputLayoutBackground">#FFFFFF</color>
+    <color name="textInputLayoutHint">#E03F3F</color>
+    <color name="textInputLayoutStroke">#E03F3F</color>
+
 </resources>
