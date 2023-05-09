@@ -3,6 +3,7 @@ package ph.stacktrek.stackilearningapp.profile
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ph.stacktrek.stackilearningapp.InteractiveActivity
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.databinding.ActivityProfileBinding
 import ph.stacktrek.stackilearningapp.databinding.ActivityRegisterBinding
@@ -19,6 +20,11 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.profilesetting.setOnClickListener(){
             val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        binding.backbutton.setOnClickListener(){
+            val intent = Intent(this, InteractiveActivity::class.java)
             startActivity(intent)
             finish()
         }

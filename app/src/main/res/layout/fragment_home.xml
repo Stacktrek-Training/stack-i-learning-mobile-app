@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spiegel_cd_bold"
+                android:text="Let's play some games!"
+                android:textColor="#000000"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/playAnimation"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/programming_effects" />
+
+            <TextView
+                android:id="@+id/featured"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/spiegel_cd_bold"
+                android:text="Your coding sandbox awaits.."
+                android:textColor="#000000"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:padding="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/spiegel_cd_bold"
+                        android:text="Coding Playground"
+                        android:textColor="#000000"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/description_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/spiegel_cd_regular"
+                        android:text="Experiment with different programming languages and write and run code in real-time."
+                        android:textColor="#666666"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/item_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/spiegel_cd_regular"
+                        android:text="Code in Java, Javascript, C, C++, C# and Python"
+                        android:textColor="#666666"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btn_go"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_orange"
+                        android:fontFamily="@font/spiegel_semi_bold"
+                        android:text="Go"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:fontFamily="@font/spiegel_cd_bold"
+                    android:text="Categories"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <!-- First row of CardViews -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- First CardView in first row -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_multiple_choices"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_margin="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/learn_html"
+                        android:elevation="8dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_multiplechoices"
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/spiegel_cd_bold"
+                                android:padding="16dp"
+                                android:text="Multiple Choices"
+                                android:textSize="24sp" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Second CardView in first row -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_drag_and_drop"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_margin="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/cardview_rounded"
+                        android:elevation="8dp"
+                        android:foreground="?android:attr/selectableItemBackground">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_dragdrop"
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/spiegel_cd_bold"
+                                android:padding="16dp"
+                                android:text="Drag and Drop"
+                                android:textSize="24sp" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Second row of CardViews -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!-- First CardView in second row -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_guess_the_picture"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_margin="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/learn_html"
+                        android:elevation="8dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_guess"
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/spiegel_cd_bold"
+                                android:padding="16dp"
+                                android:text="Guess the Picture"
+                                android:textSize="24sp" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Second CardView in second row -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_hangman"
+                        android:layout_width="0dp"
+                        android:layout_height="250dp"
+                        android:layout_margin="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/cardview_rounded"
+                        android:elevation="8dp"
+                        android:foreground="?android:attr/selectableItemBackground">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/iv_hangman"
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/spiegel_cd_bold"
+                                android:padding="16dp"
+                                android:text="Hangman Game"
+                                android:textSize="24sp" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <!-- Add your content here -->
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
