@@ -18,9 +18,7 @@ import androidx.core.content.ContextCompat
 import com.squareup.picasso.Picasso
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.dao.DatabaseHandler
-import ph.stacktrek.stackilearningapp.dao.GuessThePictureDAO
 import ph.stacktrek.stackilearningapp.databinding.ActivityGuessGameBinding
-import ph.stacktrek.stackilearningapp.model.GuessThePictureData
 import ph.stacktrek.stackilearningapp.model.QuestionModel
 
 class GuessGameActivity : AppCompatActivity() {
