@@ -6,15 +6,10 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.cardview.widget.CardView
-import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
-import ph.stacktrek.stackilearningapp.dao.GuessThePictureDAO
 import ph.stacktrek.stackilearningapp.databinding.ActivityInteractiveBinding
-import ph.stacktrek.stackilearningapp.databinding.ActivityLoginBinding
 import ph.stacktrek.stackilearningapp.interactive.DragAndDropActivity
-import ph.stacktrek.stackilearningapp.interactive.GuessThePicture
+import ph.stacktrek.stackilearningapp.interactive.GuessGameActivity
 import ph.stacktrek.stackilearningapp.interactive.HangmanActivity
 import ph.stacktrek.stackilearningapp.interactive.MultipleChoiceActivity
 import ph.stacktrek.stackilearningapp.interactive.PlaygroundActivity
@@ -23,6 +18,7 @@ import ph.stacktrek.stackilearningapp.interactive.PlaygroundActivity
 class InteractiveActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInteractiveBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interactive)
@@ -30,8 +26,6 @@ class InteractiveActivity : AppCompatActivity() {
         binding = ActivityInteractiveBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        setUpTabBar()
         //Image Loader
         //val fullstackImage = findViewById<ImageView>(R.id.iv_fullstack)
 
@@ -98,7 +92,7 @@ class InteractiveActivity : AppCompatActivity() {
         }
 
         binding.cvGuessThePicture.setOnClickListener {
-            val goGuess = Intent(applicationContext, GuessThePicture::class.java)
+            val goGuess = Intent(applicationContext, GuessGameActivity::class.java)
             startActivity(goGuess)
         }
 
@@ -108,20 +102,4 @@ class InteractiveActivity : AppCompatActivity() {
         }
 
     }
-    private fun setUpTabBar(){
-        binding.bottomNav.setOnItemSelectedListener {
-            when(it){
-                R.id.nav_home -> binding.itemTextView.text ="Home"
-                R.id.nav_leaderboard -> binding.itemTextView.text ="Leader Board"
-                R.id.nav_profile -> {
-                    binding.itemTextView.text = "Profile"
-                    binding.bottomNav.showBadge(R.id.nav_profileid)
-                }
-                R.id.nav_profileid -> {
-                    binding.itemTextView.text = "Profile"
-                    binding.bottomNav.dismissBadge(R.id.nav_profileid)
-                }
-                }
-            }
-        }
-    }
+}

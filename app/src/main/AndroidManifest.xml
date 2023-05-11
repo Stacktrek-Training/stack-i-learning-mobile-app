@@ -19,7 +19,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".interactive.GuessThePicture"
+            android:name=".interactive.GuessGameActivity"
             android:exported="false" />
 
         <activity
