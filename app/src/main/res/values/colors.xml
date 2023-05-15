@@ -17,4 +17,7 @@
     <color name="textInputLayoutHint">#E03F3F</color>
     <color name="textInputLayoutStroke">#E03F3F</color>
 
+    <color name="gameBackgroundOrange">#FC8127</color>
+    <color name="gameBackgroundBlue">#4663AC</color>
+
 </resources>

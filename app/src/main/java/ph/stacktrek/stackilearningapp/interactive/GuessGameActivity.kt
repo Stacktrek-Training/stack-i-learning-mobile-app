@@ -176,6 +176,11 @@ class GuessGameActivity : AppCompatActivity() {
     }
 
     private fun finishQuiz() {
+        val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra("score", score)
+        intent.putExtra("question", questionCountTotal)
+        startActivity(intent)
         finish()
     }
+
 }

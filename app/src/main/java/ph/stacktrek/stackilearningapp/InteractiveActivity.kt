@@ -11,6 +11,7 @@ import ph.stacktrek.stackilearningapp.databinding.ActivityInteractiveBinding
 import ph.stacktrek.stackilearningapp.interactive.DragAndDropActivity
 import ph.stacktrek.stackilearningapp.interactive.GuessGameActivity
 import ph.stacktrek.stackilearningapp.interactive.HangmanActivity
+import ph.stacktrek.stackilearningapp.interactive.MatchingGameActivity
 import ph.stacktrek.stackilearningapp.interactive.MultipleChoiceActivity
 import ph.stacktrek.stackilearningapp.interactive.PlaygroundActivity
 
@@ -33,6 +34,7 @@ class InteractiveActivity : AppCompatActivity() {
         val dragdropImage = findViewById<ImageView>(R.id.iv_dragdrop)
         val guessImage = findViewById<ImageView>(R.id.iv_guess)
         val hangmanImage = findViewById<ImageView>(R.id.iv_hangman)
+        val matchImage = findViewById<ImageView>(R.id.iv_match)
 
         val options = BitmapFactory.Options()
         options.inSampleSize = 4 // Scale down the image by a factor of 4
@@ -74,6 +76,14 @@ class InteractiveActivity : AppCompatActivity() {
             .centerCrop() // Crop the image to fill the ImageView
             .into(hangmanImage)
 
+        Picasso.get()
+            .load(R.drawable.category_match)
+            .config(Bitmap.Config.RGB_565) // Use 16-bit color depth to reduce memory usage
+            .resize(500, 500) // Resize the image to a smaller size
+            .centerCrop() // Crop the image to fill the ImageView
+            .into(matchImage)
+
+
         binding.btnGo.setOnClickListener {
 
             val goPlayground = Intent(applicationContext, PlaygroundActivity::class.java)
@@ -99,6 +109,11 @@ class InteractiveActivity : AppCompatActivity() {
         binding.cvHangman.setOnClickListener {
             val goHangman = Intent(applicationContext, HangmanActivity::class.java)
             startActivity(goHangman)
+        }
+
+        binding.cvMatch.setOnClickListener {
+            val goMatch = Intent(applicationContext, MatchingGameActivity::class.java)
+            startActivity(goMatch)
         }
 
     }

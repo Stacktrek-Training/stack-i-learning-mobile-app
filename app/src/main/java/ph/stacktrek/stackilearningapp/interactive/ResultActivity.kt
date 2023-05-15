@@ -25,10 +25,10 @@ class ResultActivity : AppCompatActivity() {
         // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
-        //val totalQuestions = intent.getIntExtra(QuestionDAO.QuestionsTable.COLUMN_QUESTION, 0)
-        //val correctAnswers = intent.getIntExtra(GuessThePictureDAO.CORRECT_ANSWERS, 0)
+        val score = intent.getIntExtra("score", 0)
+        val question = intent.getIntExtra("question", 0)
 
-        //binding.tvScore.text = "Your Score is $correctAnswers out of $totalQuestions."
+        binding.tvScore.text = "Your Score is $score out of $question."
 
         binding.btnFinish.setOnClickListener {
             startActivity(Intent(this@ResultActivity, InteractiveActivity::class.java))
