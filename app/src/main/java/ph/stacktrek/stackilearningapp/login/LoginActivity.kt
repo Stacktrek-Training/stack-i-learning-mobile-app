@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import ph.stacktrek.stackilearningapp.InteractiveActivity
+import ph.stacktrek.stackilearningapp.LearningTypeActivity
 import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.dao.UserDAO
 import ph.stacktrek.stackilearningapp.databinding.ActivityLoginBinding
@@ -122,7 +123,7 @@ class LoginActivity : AppCompatActivity() {
                             ResourcesCompat.getFont(this, R.font.spiegel_cd_bold),
                         )
 
-                        val goLogin = Intent(applicationContext, InteractiveActivity::class.java)
+                        val goLogin = Intent(applicationContext, LearningTypeActivity::class.java)
                         goLogin.putExtra("email", email)
 
                         val bundle = Bundle()
