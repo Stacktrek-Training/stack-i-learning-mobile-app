@@ -17,16 +17,14 @@
         android:padding="16dp"
         android:text="Choose a Path"
         android:fontFamily="@font/spiegel_cd_bold"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:orientation="horizontal"
         android:gravity="center">
 
-        <!-- First CardView in third row -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_fullstack"
             android:layout_width="0dp"
@@ -39,11 +37,14 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/cardview_curve_orange" >
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="260dp"
+                    android:padding="16dp"
+                    android:layout_margin="10dp"
                     android:id="@+id/iv_fullstack"/>
 
                 <TextView
@@ -82,11 +83,14 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/cardview_curve_blue" >
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="250dp"
+                    android:padding="16dp"
+                    android:layout_margin="10dp"
                     android:id="@+id/iv_mini_game"/>
 
                 <TextView
