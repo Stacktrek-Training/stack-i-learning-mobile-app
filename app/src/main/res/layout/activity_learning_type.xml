@@ -17,16 +17,14 @@
         android:padding="16dp"
         android:text="Choose a Path"
         android:fontFamily="@font/spiegel_cd_bold"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:orientation="horizontal"
         android:gravity="center">
 
-        <!-- First CardView in third row -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_fullstack"
             android:layout_width="0dp"
@@ -39,18 +37,21 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/cardview_curve_orange" >
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="260dp"
+                    android:padding="16dp"
+                    android:layout_margin="10dp"
                     android:id="@+id/iv_fullstack"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="16dp"
                     android:text="Learn FullStack Development"
                     android:fontFamily="@font/spiegel_cd_bold"
@@ -82,18 +83,24 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@drawable/cardview_curve_blue" >
 
                 <ImageView
+                    android:id="@+id/iv_mini_game"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:id="@+id/iv_mini_game"/>
+                    android:layout_height="250dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:padding="16dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:padding="16dp"
                     android:text="Programming Related Mini Games"
                     android:fontFamily="@font/spiegel_cd_bold"
