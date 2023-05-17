@@ -43,6 +43,7 @@ class InteractiveFragment : Fragment() {
         val dragdropImage = binding.ivDragdrop
         val guessImage = binding.ivGuess
         val hangmanImage = binding.ivHangman
+        val matchImage = binding.ivMatch
 
         val options = BitmapFactory.Options()
         options.inSampleSize = 4 // Scale down the image by a factor of 4
@@ -75,6 +76,13 @@ class InteractiveFragment : Fragment() {
             .centerCrop()
             .into(hangmanImage)
 
+        Picasso.get()
+            .load(R.drawable.category_match)
+            .config(Bitmap.Config.RGB_565) // Use 16-bit color depth to reduce memory usage
+            .resize(500, 500) // Resize the image to a smaller size
+            .centerCrop() // Crop the image to fill the ImageView
+            .into(matchImage)
+
 
     }
 
@@ -104,6 +112,10 @@ class InteractiveFragment : Fragment() {
             val goHangman =
                 Intent(requireContext(), HangmanActivity::class.java)
             startActivity(goHangman)
+        }
+        binding.cvMatch.setOnClickListener {
+            val goMatch = Intent(requireContext(), MatchingGameActivity::class.java)
+            startActivity(goMatch)
         }
     }
 
