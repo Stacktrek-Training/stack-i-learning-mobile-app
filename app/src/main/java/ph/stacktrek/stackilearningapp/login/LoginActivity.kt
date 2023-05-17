@@ -34,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         val email = data!!.getStringExtra("email")
         val password = data.getStringExtra("password")
 
+
         if (email != null && password != null) {
             binding.etEmail.setText(email)
             binding.etPassword.setText(password)
@@ -52,6 +53,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         userDAO = UserDAO(this)
+
+        val email = intent.getStringExtra("email")
+        if (email != null) {
+            binding.etEmail.setText(email)
+        }
 
         binding.etEmail.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

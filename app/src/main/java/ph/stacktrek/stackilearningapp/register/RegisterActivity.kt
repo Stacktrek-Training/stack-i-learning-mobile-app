@@ -47,6 +47,7 @@ class RegisterActivity : AppCompatActivity() {
                         ResourcesCompat.getFont(this,R.font.spiegel_cd_bold))
 
                     val intent = Intent(this, LoginActivity::class.java)
+                    intent.putExtra("email", email)
                     startActivity(intent)
                     finish()
                 }

@@ -32,6 +32,7 @@ class ResultActivity : AppCompatActivity() {
 
         binding.btnFinish.setOnClickListener {
             startActivity(Intent(this@ResultActivity, InteractiveActivity::class.java))
+            finish()
         }
         // END
     }
