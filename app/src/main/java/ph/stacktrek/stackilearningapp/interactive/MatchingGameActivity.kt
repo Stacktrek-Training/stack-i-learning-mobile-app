@@ -16,7 +16,7 @@ class MatchingGameActivity : AppCompatActivity() {
     private lateinit var cards: List<CardModel>
     private lateinit var adapter: CardAdapter
     private var secondCard: CardModel? = null
-
+    private var canClickCards: Boolean = true // Flag variable to track card clicking
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +34,10 @@ class MatchingGameActivity : AppCompatActivity() {
         startButton.setOnClickListener { startGame() }
 
         gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            handleCardClick(cards[position])
+            if (canClickCards) {
+                handleCardClick(cards[position])
+            }
         }
-
     }
 
     // Helper method to create list of cards
@@ -48,8 +49,8 @@ class MatchingGameActivity : AppCompatActivity() {
             R.drawable.guess_react,
             R.drawable.guess_microsoft,
             R.drawable.guess_node,
-            R.drawable.guessql,
-            R.drawable.guess_html
+            R.drawable.logo_ruby,
+            R.drawable.logo_swift
         )
 
         val cards = mutableListOf<CardModel>()
@@ -102,6 +103,9 @@ class MatchingGameActivity : AppCompatActivity() {
             card.isMatched = true
             adapter.notifyDataSetChanged()
 
+            // Disable card clicking during the delay
+            canClickCards = false
+
             // Wait for 2 seconds before checking for match
             Handler().postDelayed({
                 if (secondCard!!.imageResourceId == firstCard!!.imageResourceId) {
@@ -121,6 +125,8 @@ class MatchingGameActivity : AppCompatActivity() {
                 // Reset card selections
                 firstCard = null
                 secondCard = null
+                // Enable card clicking again
+                canClickCards = true
             }, 1000)
         }
     }

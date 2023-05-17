@@ -61,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 // validate the email here
                 if (!isValidEmail(s.toString())) {
-                    binding.etEmail.error = "Invalid email"
+
                 } else {
                     binding.etEmail.error = null
                 }

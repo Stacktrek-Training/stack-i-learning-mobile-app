@@ -20,6 +20,8 @@
     <string name="choice2">Choice 2</string>
     <string name="choice3">Choice 3</string>
     <string name="choice4">Choice 4</string>
+    <string name="fullname">Full Name</string>
+    <string name="address">Address</string>
 
 
     <!-- Dashboard Strings -->

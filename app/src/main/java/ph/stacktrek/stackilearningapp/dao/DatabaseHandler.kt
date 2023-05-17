@@ -19,8 +19,9 @@ class DatabaseHandler(context: Context) :
         // User
         const val TABLE_USER = "user_table"
         const val COLUMN_USER_ID = "id"
+        //const val COLUMN_USER_NAME = "fullname"
+        //const val COLUMN_USER_ADDRESS = "email"
         const val COLUMN_USER_EMAIL = "email"
-        const val COLUMN_USER_USERNAME = "username"
         const val COLUMN_USER_PASSWORD = "password"
 
     }
@@ -33,12 +34,11 @@ class DatabaseHandler(context: Context) :
             "CREATE TABLE $TABLE_USER " +
                 "($COLUMN_USER_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "$COLUMN_USER_EMAIL TEXT UNIQUE, " +
-                "$COLUMN_USER_USERNAME TEXT UNIQUE, " +
                 "$COLUMN_USER_PASSWORD TEXT)"
 
         db?.execSQL(CREATE_USERS_TABLE)
 
-        db?.execSQL("Insert into $TABLE_USER ($COLUMN_USER_EMAIL, $COLUMN_USER_USERNAME, $COLUMN_USER_PASSWORD) values ('test@gmail.com', 'admin', 'admin')")
+        db?.execSQL("Insert into $TABLE_USER ($COLUMN_USER_EMAIL, $COLUMN_USER_PASSWORD) values ('test@gmail.com', 'admin')")
 
         this.db = db
 

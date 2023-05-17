@@ -22,7 +22,7 @@
         android:layout_height="50dp"
         android:layout_below="@+id/join"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/button_facebook"
         android:drawableLeft="@drawable/logo_facebook"
         android:drawablePadding="10dp"
@@ -51,11 +51,15 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_below="@+id/google_button"
-        android:layout_margin="20dp"
-        android:background="#DDDDDD"/>
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="#DDDDDD" />
+
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email"
+        android:id="@+id/fullname"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
@@ -63,9 +67,67 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/input_background"
-        android:hint="@string/email"
+        android:hint="@string/fullname"
         android:fontFamily="@font/spiegel_cd_regular"
         app:startIconDrawable="@drawable/baseline_account_circle_24"
+        app:endIconMode="clear_text"
+        app:boxBackgroundColor="@color/textInputLayoutBackground"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeErrorColor="@color/black"
+        app:hintTextColor="@color/black"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spiegel_cd_regular"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@+id/fullname"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/input_background"
+        android:hint="@string/address"
+        android:fontFamily="@font/spiegel_cd_regular"
+        app:startIconDrawable="@drawable/baseline_location_on_24"
+        app:endIconMode="clear_text"
+        app:boxBackgroundColor="@color/textInputLayoutBackground"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeErrorColor="@color/black"
+        app:hintTextColor="@color/black"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spiegel_cd_regular"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@+id/address"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/input_background"
+        android:hint="@string/email"
+        android:fontFamily="@font/spiegel_cd_regular"
+        app:startIconDrawable="@drawable/baseline_alternate_email_24"
         app:endIconMode="clear_text"
         app:boxBackgroundColor="@color/textInputLayoutBackground"
         app:boxStrokeColor="@color/black"

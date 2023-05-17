@@ -11,7 +11,6 @@ class UserDAO(context: Context) {
         const val TABLE_USER = "user_table"
         const val TABLE_USER_ID = "id"
         const val TABLE_USER_EMAIL = "email"
-        const val TABLE_USER_USERNAME = "username"
         const val TABLE_USER_PASSWORD = "password"
     }
 

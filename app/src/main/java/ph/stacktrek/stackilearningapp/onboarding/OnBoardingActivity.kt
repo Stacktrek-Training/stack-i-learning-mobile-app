@@ -76,6 +76,13 @@ class OnBoardingActivity : AppCompatActivity() {
                     .position = position // Update the position variable
                 if (position == onBoardingDataList.size - 1) {
                     next?.text = "Get Started"
+                    next?.setOnClickListener {
+                        if (next?.text == "Get Started") {
+                            savePrefData()
+                            val i = Intent(applicationContext, LoginActivity::class.java)
+                            startActivity(i)
+                        }
+                    }
                 } else {
                     next?.text = "Next"
                 }
@@ -86,11 +93,6 @@ class OnBoardingActivity : AppCompatActivity() {
             if (position < onBoardingDataList.size - 1) {
                 position++
                 onBoardingViewPager2.currentItem = position
-            }
-            if (next?.text == "Get Started") {
-                savePrefData()
-                val i = Intent(applicationContext, LoginActivity::class.java)
-                startActivity(i)
             }
         }
     }

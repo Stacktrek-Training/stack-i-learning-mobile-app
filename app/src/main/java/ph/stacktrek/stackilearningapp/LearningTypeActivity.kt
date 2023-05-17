@@ -52,7 +52,7 @@ class LearningTypeActivity : AppCompatActivity() {
         }
 
         binding.cvMiniGame.setOnClickListener {
-            val goMiniGame = Intent(applicationContext, InteractiveActivity::class.java)
+            val goMiniGame = Intent(applicationContext, MainActivity::class.java)
             startActivity(goMiniGame)
         }
     }
