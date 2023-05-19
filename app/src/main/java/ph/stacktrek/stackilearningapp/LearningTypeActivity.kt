@@ -9,8 +9,11 @@ import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import ph.stacktrek.stackilearningapp.databinding.ActivityInteractiveBinding
 import ph.stacktrek.stackilearningapp.databinding.ActivityLearningTypeBinding
+import ph.stacktrek.stackilearningapp.databinding.ActivityMilestonetestBinding
 import ph.stacktrek.stackilearningapp.interactive.MultipleChoiceActivity
 import ph.stacktrek.stackilearningapp.interactive.PlaygroundActivity
+import ph.stacktrek.stackilearningapp.milestone.Milestone
+import ph.stacktrek.stackilearningapp.milestone.MilestoneManager
 
 class LearningTypeActivity : AppCompatActivity() {
 
@@ -46,7 +49,7 @@ class LearningTypeActivity : AppCompatActivity() {
 
         binding.cvFullstack.setOnClickListener {
 
-            val goFullstack = Intent(applicationContext, PlaygroundActivity::class.java)
+            val goFullstack = Intent(applicationContext, MilestoneManager.milestonetest::class.java)
             startActivity(goFullstack)
 
         }

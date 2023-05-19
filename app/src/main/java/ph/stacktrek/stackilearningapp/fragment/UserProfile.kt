@@ -1,4 +1,4 @@
-package ph.stacktrek.stackilearningapp.profile
+package ph.stacktrek.stackilearningapp.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,10 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ph.stacktrek.stackilearningapp.InteractiveFragment
-import ph.stacktrek.stackilearningapp.R
+import ph.stacktrek.stackilearningapp.databinding.FragmentHomeBinding
 import ph.stacktrek.stackilearningapp.databinding.FragmentUserProfileBinding
-import ph.stacktrek.stackilearningapp.login.LoginActivity
+import ph.stacktrek.stackilearningapp.profile.EditProfileActivity
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentUserProfileBinding? = null
@@ -32,7 +31,7 @@ class ProfileFragment : Fragment() {
             requireActivity().finish()
         }
         binding.backbutton.setOnClickListener {
-            val intent = Intent(requireContext(), InteractiveFragment::class.java)
+            val intent = Intent(requireContext(), FragmentHomeBinding::class.java)
             startActivity(intent)
             requireActivity().finish()
         }
