@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
             binding.etPassword.setText(password)
             Snackbar.make(
                 binding.root,
-                "Registered ${data!!.getStringExtra("email")}",
+                "Registered ${data.getStringExtra("email")}",
                 Snackbar.LENGTH_LONG,
             ).show()
         }

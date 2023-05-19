@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import ph.stacktrek.stackilearningapp.databinding.ActivityMainBinding
+import ph.stacktrek.stackilearningapp.fragment.InteractiveFragment
 import ph.stacktrek.stackilearningapp.fragment.ProfileFragment
 
 
@@ -14,9 +15,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // Load Home fragment initially
-        replaceFragment(InteractiveFragment())
 
         binding.bottomNav.setOnItemSelectedListener {
             when (it) {
@@ -31,10 +29,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment : Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, fragment)
+        fragmentTransaction.replace(R.id.frame_layout,fragment)
         fragmentTransaction.commit()
     }
 }

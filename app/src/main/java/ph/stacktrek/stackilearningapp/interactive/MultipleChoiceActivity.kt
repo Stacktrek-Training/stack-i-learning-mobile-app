@@ -1,5 +1,6 @@
 package ph.stacktrek.stackilearningapp.interactive
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -84,12 +85,10 @@ class MultipleChoiceActivity : AppCompatActivity(), View.OnClickListener {
     private fun finishQuiz() {
         val passStatus = if (score > totalQuestion * 0.60) "Passed" else "Failed"
 
-        AlertDialog.Builder(this)
-            .setTitle(passStatus)
-            .setMessage("Score is $score out of $totalQuestion")
-            .setPositiveButton("Restart") { _, _ -> restartQuiz() }
-            .setCancelable(false)
-            .show()
+        val resultIntent = Intent(this@MultipleChoiceActivity, ResultActivity::class.java)
+        resultIntent.putExtra("score", score)
+        resultIntent.putExtra("question", totalQuestion)
+        startActivity(resultIntent)
     }
 
     private fun restartQuiz() {

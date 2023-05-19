@@ -20,6 +20,7 @@ class DragAndDropActivity : AppCompatActivity() {
     private var currentQuestionIndex = 0
     private lateinit var currentQuestion: DragAndDropData
     private var draggedText: CharSequence? = null
+    private var score = 0
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,7 +125,8 @@ class DragAndDropActivity : AppCompatActivity() {
             if (isAnswerCorrect) {
                 Toast.makeText(this@DragAndDropActivity, "Correct answer!", Toast.LENGTH_SHORT)
                     .show()
-
+                // Increment the score
+                score++
                 // Increment the currentQuestionIndex variable
                 currentQuestionIndex++
 
@@ -146,10 +148,12 @@ class DragAndDropActivity : AppCompatActivity() {
                     AlertDialog.Builder(this)
                         .setTitle("Quiz Done!")
                         .setMessage("You answered all the queries!")
-                        .setPositiveButton("Restart") { _, _ ->
-                            val intent = Intent(this, DragAndDropActivity::class.java)
-                            startActivity(intent)
+                        .setPositiveButton("Show Result") { _, _ ->
+                            val intent = Intent(this, ResultActivity::class.java)
+                            intent.putExtra("score", score) // Pass the score to the ResultActivity
+                            intent.putExtra("question", DragAndDropData.questionsList.size) // Pass the total number of questions
                             finish()
+                            startActivity(intent)
                         }
                         .setCancelable(false)
                         .show()

@@ -1,4 +1,4 @@
-package ph.stacktrek.stackilearningapp
+package ph.stacktrek.stackilearningapp.fragment
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.squareup.picasso.Picasso
+import ph.stacktrek.stackilearningapp.R
 import ph.stacktrek.stackilearningapp.databinding.FragmentHomeBinding
 
 import ph.stacktrek.stackilearningapp.interactive.DragAndDropActivity

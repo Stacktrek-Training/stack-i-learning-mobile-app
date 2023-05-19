@@ -188,7 +188,7 @@
                                 android:layout_alignParentBottom="true"
                                 android:layout_gravity="center"
                                 android:padding="16dp"
-                                android:text="Hold and Drop"
+                                android:text="Drag and Drop"
                                 android:fontFamily="@font/spiegel_cd_bold"
                                 android:textSize="24sp" />
 

@@ -1,5 +1,6 @@
 package ph.stacktrek.stackilearningapp.interactive
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -17,6 +18,8 @@ class HangmanActivity : AppCompatActivity() {
     private var remainingMoves = 7
     private val lettersGuessed = BooleanArray(26)
     private var word: String? = null
+    private val words = arrayOf("javascript", "python", "java", "kotlin", "ruby")
+
 
     // Declare a variable for the HangmanView
     private lateinit var hangmanView: HangmanView
@@ -33,16 +36,7 @@ class HangmanActivity : AppCompatActivity() {
         textViewWord = binding.textViewWord
         buttonReset = binding.buttonReset
 
-        // Choose a random word
-        word = "javascript".toUpperCase(Locale.ROOT)
-
-        // Set the text of textViewWord to a series of dashes
-        val sb = StringBuilder()
-        for (i in 0 until word!!.length) {
-            sb.append("_ ")
-        }
-        textViewWord!!.text = sb.toString().trim()
-
+        resetGame()
         // Set up the keyboard
         val keyboardView = binding.keyboardView
         keyboardView.setOnLetterClickListener { letter ->
@@ -57,11 +51,11 @@ class HangmanActivity : AppCompatActivity() {
     private fun resetGame() {
         remainingMoves = 7
         lettersGuessed.fill(false)
-        word = "javascript".toUpperCase(Locale.ROOT)
+        word = words.random().toUpperCase(Locale.ROOT)
+        val shuffledWord = word!!.toCharArray().apply { shuffle() }.joinToString("")
 
-        // Set the text of textViewWord to a series of dashes
         val sb = StringBuilder()
-        for (i in 0 until word!!.length) {
+        for (i in 0 until shuffledWord.length) {
             sb.append("_ ")
         }
         textViewWord!!.text = sb.toString().trim()
@@ -69,21 +63,37 @@ class HangmanActivity : AppCompatActivity() {
         hangmanView.setRemainingMoves(remainingMoves)
         binding.textViewMoves.text = "Remaining moves: $remainingMoves"
 
-        // Re-enable all the letter views
         val keyboardView = binding.keyboardView
-        for (i in 0 until keyboardView.getChildCount()) {
+        for (i in 0 until keyboardView.childCount) {
             val letterView = keyboardView.getChildAt(i) as TextView
             letterView.isEnabled = true
         }
     }
 
+
     private fun updateWordView() {
         val sb = StringBuilder()
+        var wordGuessed = true // Track if the word has been completely guessed
+
         for (i in 0 until word!!.length) {
             val letter = word!![i].toString()
-            sb.append(if (lettersGuessed[letter[0].toInt() - 'A'.toInt()]) letter else "_ ")
+            if (lettersGuessed[letter[0].toInt() - 'A'.toInt()]) {
+                sb.append(letter)
+            } else {
+                sb.append("_ ")
+                wordGuessed = false
+            }
         }
+
         textViewWord!!.text = sb.toString().trim()
+
+        if (wordGuessed) {
+            val success = "success"
+
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("success", success)
+            startActivity(intent)
+        }
     }
 
     private fun onLetterClick(letter: String) {

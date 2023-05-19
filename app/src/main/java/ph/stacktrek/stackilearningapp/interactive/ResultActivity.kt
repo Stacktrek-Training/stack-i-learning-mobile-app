@@ -20,20 +20,22 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // TODO (STEP 6: Hide the status bar and get the details from intent and set it to the UI. And also add a click event to the finish button.)
-        // START
         // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
 
         val score = intent.getIntExtra("score", 0)
         val question = intent.getIntExtra("question", 0)
+        val success = intent.getStringExtra("success")
 
-        binding.tvScore.text = "Your Score is $score out of $question."
+        if (success == "success") {
+            binding.tvScore.text = "You guessed the word!"
+        } else {
+            binding.tvScore.text = "Your Score is $score out of $question."
+        }
 
         binding.btnFinish.setOnClickListener {
             startActivity(Intent(this@ResultActivity, InteractiveActivity::class.java))
             finish()
         }
-        // END
     }
 }
